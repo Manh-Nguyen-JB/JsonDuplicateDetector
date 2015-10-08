@@ -1,4 +1,4 @@
-package com.manhnguyen.checkkey;
+package com.manhnguyen.duplicatedetector;
 
 import org.json.*;
 import java.util.*;

@@ -1,12 +1,16 @@
 apply plugin: 'java'
+apply plugin: 'eclipse'
+
+version = '1.0'
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
 //create a single Jar with all dependencies
 task fatJar(type: Jar) {
-	manifest {
-        attributes 'Implementation-Title': 'Gradle Jar File Example',
-        	'Main-Class': 'com.manhnguyen.duplicatedetector.Main'
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File Example',  
+                   'Implementation-Version': version,
+                   'Main-Class': 'com.manhnguyen.duplicatedetector.Main'
     }
     baseName = project.name
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
@@ -15,7 +19,7 @@ task fatJar(type: Jar) {
 
 repositories {
     flatDir {
-       dirs 'libs'
+        dirs 'libs'
     }
 }
 
